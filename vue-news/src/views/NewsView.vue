@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div v-for="news in newsList" :key="news.id">
-      {{ news.title }}
-    </div>
+    <p v-for="news in newsList" :key="news.id">
+      <a :href="news.url">{{ news.title }}</a>
+      <small>{{ news.time_ago }} by {{ news.user }}</small>
+    </p>
   </div>
 </template>
 
