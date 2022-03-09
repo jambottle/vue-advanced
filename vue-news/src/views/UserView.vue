@@ -1,22 +1,26 @@
 <template>
-  <div>
-    <p>name: {{ userInfo.id }}</p>
-    <p>karma: {{ userInfo.karma }}</p>
-    <p>created: {{ userInfo.created }}</p>
-  </div>
+  <UserInfo>
+    <template v-slot:user>{{ userInfo.id }}</template>
+    <template v-slot:time>Joined {{ userInfo.created }}</template>
+    <template v-slot:karma>, {{ userInfo.karma }} karma</template>
+  </UserInfo>
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex';
-const { mapState, mapActions } = createNamespacedHelpers('user');
+import { mapState, mapActions } from 'vuex';
+import UserInfo from '@/components/UserInfo.vue';
 
 export default {
+  components: {
+    UserInfo,
+  },
+
   computed: {
-    ...mapState(['userInfo']),
+    ...mapState('user', ['userInfo']),
   },
 
   methods: {
-    ...mapActions(['GET_USER_INFO']),
+    ...mapActions('user', ['GET_USER_INFO']),
   },
 
   created() {
