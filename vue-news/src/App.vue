@@ -17,12 +17,26 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #app {
   color: #2c3e50;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  a {
+    color: #34495e;
+    text-decoration: none;
+
+    &:hover {
+      color: #42b883;
+      text-decoration: underline;
+    }
+
+    &.router-link-exact-active {
+      text-decoration: underline;
+    }
+  }
 
   /* Router Transition */
   .page-enter-active,

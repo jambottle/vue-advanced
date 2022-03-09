@@ -9,11 +9,15 @@
 <style lang="scss" scoped>
 #header {
   padding: 8px;
-  color: #ffffff;
   background-color: #42b883;
+  color: #ffffff;
 
   a {
     color: #ffffff;
+
+    &:hover {
+      color: #ffffff;
+    }
 
     &.router-link-exact-active {
       color: #35495e;
