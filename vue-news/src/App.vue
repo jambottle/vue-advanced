@@ -3,14 +3,17 @@
   <transition name="page">
     <router-view />
   </transition>
+  <Spinner :isLoading="true" />
 </template>
 
 <script>
 import ToolBar from '@/components/ToolBar.vue';
+import Spinner from '@/components/Spinner.vue';
 
 export default {
   components: {
     ToolBar,
+    Spinner,
   },
 };
 </script>
