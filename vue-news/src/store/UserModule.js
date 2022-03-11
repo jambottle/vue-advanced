@@ -16,8 +16,8 @@ export default {
   },
 
   actions: {
-    GET_USER_INFO({ commit }, userName) {
-      fetchUserInfo(userName)
+    GET_USER_INFO({ commit }, userId) {
+      fetchUserInfo(userId)
         .then(({ data }) => {
           commit('SET_USER_INFO', data);
         })

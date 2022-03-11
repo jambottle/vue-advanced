@@ -24,8 +24,8 @@ export default {
   },
 
   created() {
-    const userName = this.$route.params.id;
-    this.GET_USER_INFO(userName);
+    const userId = this.$route.params.id;
+    this.GET_USER_INFO(userId);
   },
 };
 </script>

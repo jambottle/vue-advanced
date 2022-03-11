@@ -14,8 +14,8 @@ function fetchItemInfo(itemId) {
   return axios.get(`${config.baseURL}/item/${itemId}.json`);
 }
 
-function fetchUserInfo(userName) {
-  return axios.get(`${config.baseURL}/user/${userName}.json`);
+function fetchUserInfo(userId) {
+  return axios.get(`${config.baseURL}/user/${userId}.json`);
 }
 
 export { fetchFeedList, fetchItemInfo, fetchUserInfo };
