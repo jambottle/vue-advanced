@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import NewsView from '@/views/NewsView.vue';
-import AskView from '@/views/AskView.vue';
-import JobsView from '@/views/JobsView.vue';
+import createFeedView from '@/views/createFeedView';
 import ItemView from '@/views/ItemView.vue';
 import UserView from '@/views/UserView.vue';
 
@@ -14,18 +12,18 @@ const routes = [
   },
   {
     path: '/news',
-    name: 'News',
-    component: NewsView,
+    name: 'NewsFeed',
+    component: createFeedView('news'),
   },
   {
     path: '/ask',
-    name: 'Ask',
-    component: AskView,
+    name: 'AskFeed',
+    component: createFeedView('ask'),
   },
   {
     path: '/jobs',
-    name: 'Jobs',
-    component: JobsView,
+    name: 'JobsFeed',
+    component: createFeedView('jobs'),
   },
   {
     path: '/item/:id',
