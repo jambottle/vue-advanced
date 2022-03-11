@@ -3,7 +3,7 @@
   <transition name="page">
     <router-view />
   </transition>
-  <Spinner :isLoading="true" />
+  <Spinner :isLoading="isLoading" />
 </template>
 
 <script>
@@ -14,6 +14,31 @@ export default {
   components: {
     ToolBar,
     Spinner,
+  },
+
+  data() {
+    return {
+      isLoading: false,
+    };
+  },
+
+  methods: {
+    startSpinner() {
+      this.isLoading = true;
+    },
+    endSpinner() {
+      this.isLoading = false;
+    },
+  },
+
+  mounted() {
+    this.emitter.on('startSpinner', this.startSpinner);
+    this.emitter.on('endSpinner', this.endSpinner);
+  },
+
+  beforeUnmount() {
+    this.emitter.off('startSpinner', this.startSpinner);
+    this.emitter.off('endSpinner', this.endSpinner);
   },
 };
 </script>
