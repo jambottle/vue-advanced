@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   computed: {
@@ -47,19 +47,6 @@ export default {
       if (name === 'Jobs') return this.jobsList;
       else return null;
     },
-  },
-
-  methods: {
-    ...mapActions('news', ['GET_NEWS_LIST']),
-    ...mapActions('ask', ['GET_ASK_LIST']),
-    ...mapActions('jobs', ['GET_JOBS_LIST']),
-  },
-
-  created() {
-    const name = this.$route.name;
-    if (name === 'News') this.GET_NEWS_LIST();
-    if (name === 'Ask') this.GET_ASK_LIST();
-    if (name === 'Jobs') this.GET_JOBS_LIST();
   },
 };
 </script>
