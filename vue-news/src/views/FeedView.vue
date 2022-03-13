@@ -6,9 +6,12 @@
 
 <script>
 import { mapState } from 'vuex';
+import FeedMixin from '@/mixins/FeedMixin.js';
 import FeedItem from '@/components/FeedItem.vue';
 
 export default {
+  mixins: [FeedMixin],
+
   components: {
     FeedItem,
   },
