@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import FeedView from '@/views/FeedView.vue';
+import createFeedView from '@/views/createFeedView';
 import ItemView from '@/views/ItemView.vue';
 import UserView from '@/views/UserView.vue';
 
@@ -13,17 +13,17 @@ const routes = [
   {
     path: '/news',
     name: 'NewsFeed',
-    component: FeedView,
+    component: createFeedView('news'),
   },
   {
     path: '/ask',
     name: 'AskFeed',
-    component: FeedView,
+    component: createFeedView('ask'),
   },
   {
     path: '/jobs',
     name: 'JobsFeed',
-    component: FeedView,
+    component: createFeedView('jobs'),
   },
   {
     path: '/item/:id',
