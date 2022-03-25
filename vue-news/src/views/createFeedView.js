@@ -11,7 +11,9 @@ function createFeedView(feedName) {
     created() {
       this.emitter.emit('startSpinner');
       this.GET_FEED_LIST(feedName)
-        .then(this.emitter.emit('endSpinner'))
+        .then(() => {
+          this.emitter.emit('endSpinner');
+        })
         .catch(error => console.log(error));
     },
 

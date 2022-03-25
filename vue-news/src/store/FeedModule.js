@@ -17,7 +17,7 @@ export default {
 
   actions: {
     GET_FEED_LIST({ commit }, feedName) {
-      fetchFeedList(feedName)
+      return fetchFeedList(feedName)
         .then(({ data }) => {
           commit('SET_FEED_LIST', data);
         })
