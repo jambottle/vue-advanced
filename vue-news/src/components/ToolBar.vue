@@ -1,26 +1,60 @@
 <template>
-  <div id="header">
-    <router-link to="/news">News</router-link> |
-    <router-link to="/ask">Ask</router-link> |
-    <router-link to="/jobs">Jobs</router-link>
-  </div>
+  <header id="header">
+    <nav>
+      <router-link to="/news">News</router-link> |
+      <router-link to="/ask">Ask</router-link> |
+      <router-link to="/jobs">Jobs</router-link>
+    </nav>
+    <button @click="signIn">Sign In</button>
+  </header>
 </template>
+
+<script>
+import axios from 'axios';
+import handleException from '@/utils/handleException';
+
+export default {
+  methods: {
+    async signIn() {
+      try {
+        const response = await axios.get(
+          'https://jsonplaceholder.typicode.com/users/1'
+        );
+        if (response.data.id === 1) {
+          const list = await axios.get(
+            'https://jsonplaceholder.typicode.com/todos'
+          );
+          console.log(list.data);
+        }
+      } catch (error) {
+        handleException(error);
+      }
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 #header {
-  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 4px 8px;
   background-color: #42b883;
   color: #ffffff;
 
-  a {
-    color: #ffffff;
-
-    &:hover {
+  nav {
+    a {
       color: #ffffff;
-    }
 
-    &.router-link-exact-active {
-      color: #35495e;
+      &:hover {
+        color: #ffffff;
+      }
+
+      &.router-link-exact-active {
+        color: #35495e;
+      }
     }
   }
 }
