@@ -16,12 +16,9 @@ export default {
   },
 
   actions: {
-    GET_FEED_LIST({ commit }, feedName) {
-      return fetchFeedList(feedName)
-        .then(({ data }) => {
-          commit('SET_FEED_LIST', data);
-        })
-        .catch(error => console.log(error));
+    async GET_FEED_LIST({ commit }, feedName) {
+      const response = await fetchFeedList(feedName);
+      commit('SET_FEED_LIST', response.data);
     },
   },
 };

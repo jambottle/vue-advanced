@@ -16,12 +16,9 @@ export default {
   },
 
   actions: {
-    GET_ITEM_INFO({ commit }, itemId) {
-      fetchItemInfo(itemId)
-        .then(({ data }) => {
-          commit('SET_ITEM_INFO', data);
-        })
-        .catch(error => console.log(error));
+    async GET_ITEM_INFO({ commit }, itemId) {
+      const response = await fetchItemInfo(itemId);
+      commit('SET_ITEM_INFO', response.data);
     },
   },
 };

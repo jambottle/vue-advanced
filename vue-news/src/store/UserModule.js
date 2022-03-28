@@ -16,12 +16,9 @@ export default {
   },
 
   actions: {
-    GET_USER_INFO({ commit }, userId) {
-      fetchUserInfo(userId)
-        .then(({ data }) => {
-          commit('SET_USER_INFO', data);
-        })
-        .catch(error => console.log(error));
+    async GET_USER_INFO({ commit }, userId) {
+      const response = await fetchUserInfo(userId);
+      commit('SET_USER_INFO', response.data);
     },
   },
 };
