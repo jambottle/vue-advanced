@@ -3,13 +3,10 @@
 </template>
 
 <script>
-import { Chart, registerables } from 'chart.js';
-Chart.register(...registerables);
-
 export default {
   mounted() {
     // eslint-disable-next-line no-unused-vars
-    const chart = new Chart(this.$refs.barChart.getContext('2d'), {
+    const chart = new this.$_chart(this.$refs.barChart.getContext('2d'), {
       type: 'bar',
       data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],

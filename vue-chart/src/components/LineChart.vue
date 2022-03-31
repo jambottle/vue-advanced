@@ -3,13 +3,10 @@
 </template>
 
 <script>
-import { Chart, registerables } from 'chart.js';
-Chart.register(...registerables);
-
 export default {
   mounted() {
     // eslint-disable-next-line no-unused-vars
-    const chart = new Chart(this.$refs.lineChart.getContext('2d'), {
+    const chart = new this.$_chart(this.$refs.lineChart.getContext('2d'), {
       type: 'line',
       data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June'],
