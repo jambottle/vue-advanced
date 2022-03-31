@@ -1,5 +1,5 @@
 <template>
-  <canvas id="barChart" width="400" height="400" />
+  <canvas ref="barChart" width="400" height="400" />
 </template>
 
 <script>
@@ -8,9 +8,8 @@ Chart.register(...registerables);
 
 export default {
   mounted() {
-    const ctx = document.getElementById('barChart').getContext('2d');
     // eslint-disable-next-line no-unused-vars
-    const chart = new Chart(ctx, {
+    const chart = new Chart(this.$refs.barChart.getContext('2d'), {
       type: 'bar',
       data: {
         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],

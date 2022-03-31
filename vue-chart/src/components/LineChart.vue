@@ -1,5 +1,5 @@
 <template>
-  <canvas id="lineChart" width="400" height="400" />
+  <canvas ref="lineChart" width="400" height="400" />
 </template>
 
 <script>
@@ -8,9 +8,8 @@ Chart.register(...registerables);
 
 export default {
   mounted() {
-    const ctx = document.getElementById('lineChart').getContext('2d');
     // eslint-disable-next-line no-unused-vars
-    const chart = new Chart(ctx, {
+    const chart = new Chart(this.$refs.lineChart.getContext('2d'), {
       type: 'line',
       data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June'],
